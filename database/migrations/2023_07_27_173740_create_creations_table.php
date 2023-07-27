@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('creations', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->string('src');
+            $table->dateTime('time_of_the_event');
+            $table->string('media_platform');
+            $table->string('type_of_event');
+
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Creation;
+use App\Models\Fund;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/creations', function (Request $request) {
     return Creation::all();
+});
+
+Route::get('/funds', function (Request $request) {
+    return Fund::all();
 });

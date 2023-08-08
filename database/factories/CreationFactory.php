@@ -17,7 +17,13 @@ class CreationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->text,
+            'description' => $this->faker->paragraph,
+            'src' => $this->faker->url,
+            'time_of_the_event' => $this->faker->dateTime,
+            'media_platform' => $this->faker->text,
+            'type_of_event' => $this->faker->name
+
         ];
     }
 }

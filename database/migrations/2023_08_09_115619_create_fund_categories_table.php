@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funds', function (Blueprint $table) {
+        Schema::create('fund_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('category');
-            $table->string('administrator_id');
-            $table->string('contact_person');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('category_name');
+            $table->text('category_description');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funds');
+        Schema::dropIfExists('fund_categories');
     }
 };

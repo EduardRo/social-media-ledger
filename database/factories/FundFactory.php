@@ -18,8 +18,8 @@ class FundFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
-            'city' => $this->faker->city,
-            'address' => $this->faker->address,
+            'category' => $this->faker->company,
+            'administrator_id' => $this->faker->numberBetween(1, 10),
             'phone' => $this->faker->phoneNumber,
             'contact_person' => $this->faker->name,
             'email' => $this->faker->email,

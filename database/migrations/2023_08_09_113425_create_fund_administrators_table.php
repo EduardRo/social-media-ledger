@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funds', function (Blueprint $table) {
+        Schema::create('fund_administrators', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('category');
-            $table->string('administrator_id');
+            $table->string('country');
+            $table->string('city');
+            $table->text('address');
             $table->string('contact_person');
             $table->string('phone');
             $table->string('email');
+            $table->string('administrator_name');
+            $table->string('administrator_surname');
+            $table->string('administrator_phone');
+            $table->string('administrator_email');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funds');
+        Schema::dropIfExists('fund_administrators');
     }
 };

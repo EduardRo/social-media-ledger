@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('category');
-            $table->string('administrator_id');
+            $table->string('fund_administrator_id');
             $table->string('contact_person');
             $table->string('phone');
             $table->string('email');

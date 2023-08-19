@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Creation;
 use App\Models\Fund;
 use App\Http\Controllers\FundController;
+use App\Http\Controllers\CreationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,13 @@ use App\Http\Controllers\FundController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+/*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
 
-Route::get('/creations', function (Request $request) {
-    return Creation::all();
-});
+Route::get('/creations', [CreationController::class, 'index']);
 /*
 Old example that didn't used Controller
 Route::get('/funds', function (Request $request) {
@@ -31,5 +31,10 @@ Route::get('/funds', function (Request $request) {
 });
 */
 //All the fund using Controller and FundResource
+
+// the store request without authentification
+Route::post('/creations', [CreationController::class, 'store']);
+
+
 
 Route::get('/funds', [FundController::class, 'index']);

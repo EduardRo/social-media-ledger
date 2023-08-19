@@ -17,7 +17,8 @@ class CreationFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->text,
+            // 'title' => implode(' ', $this->faker->words(1)),
+            'title' => $this->faker->sentence($nbWords = 1),
             'description' => $this->faker->paragraph,
             'src' => $this->faker->url,
             'time_of_the_event' => $this->faker->dateTime,

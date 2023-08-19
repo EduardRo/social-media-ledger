@@ -22,7 +22,11 @@ class StoreCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'src' => 'required|string',
+            'media_platform' => 'required|string',
+            'type_of_event' => 'required|string',
         ];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Creation;
 use App\Http\Requests\StoreCreationRequest;
 use App\Http\Requests\UpdateCreationRequest;
+use Illuminate\Http\Request;
 
 class CreationController extends Controller
 {
@@ -13,7 +14,8 @@ class CreationController extends Controller
      */
     public function index()
     {
-        //
+        $creations = Creation::all();
+        return response()->json($creations);
     }
 
     /**
@@ -27,9 +29,16 @@ class CreationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCreationRequest $request)
+    public function store(Request $request)
     {
-        //
+        /*
+        $creationData = $request->validated();
+
+        $creation = Creation::create($creationData);
+
+        return response()->json($creation, 201);
+        */
+        return Creation::create($request->all());
     }
 
     /**
@@ -54,6 +63,7 @@ class CreationController extends Controller
     public function update(UpdateCreationRequest $request, Creation $creation)
     {
         //
+
     }
 
     /**

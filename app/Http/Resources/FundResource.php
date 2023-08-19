@@ -14,6 +14,18 @@ class FundResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'code' => $this->generateCode(),
+        ];
+    }
+
+    private function generateCode()
+    {
+        $firstTwoLetters = substr($this->name, 0, 2);
+        return "{$this->id}-{$firstTwoLetters}";
     }
 }

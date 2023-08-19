@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Fund;
 use App\Http\Requests\StoreFundRequest;
 use App\Http\Requests\UpdateFundRequest;
+use App\Http\Resources\FundResource;
+use Illuminate\Support\Facades\DB;
 
 class FundController extends Controller
 {
@@ -13,7 +15,11 @@ class FundController extends Controller
      */
     public function index()
     {
-        //
+        // using the model
+        $funds = Fund::all();
+        // using the database for raw query DB
+        // $funds = DB::table('funds')->whereBetween('id', [5, 10])->get();
+        return FundResource::collection($funds);
     }
 
     /**

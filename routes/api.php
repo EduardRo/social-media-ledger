@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Creation;
 use App\Models\Fund;
+use App\Http\Controllers\FundController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/creations', function (Request $request) {
     return Creation::all();
 });
-
+/*
+Old example that didn't used Controller
 Route::get('/funds', function (Request $request) {
     return Fund::all();
 });
+*/
+//All the fund using Controller and FundResource
+
+Route::get('/funds', [FundController::class, 'index']);

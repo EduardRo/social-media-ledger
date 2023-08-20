@@ -32,6 +32,7 @@ class CreationController extends Controller
     public function store(Request $request)
     {
         /*
+        StoreCreationRequest nu merge
         $creationData = $request->validated();
 
         $creation = Creation::create($creationData);

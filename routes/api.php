@@ -33,8 +33,16 @@ Route::get('/funds', function (Request $request) {
 //All the fund using Controller and FundResource
 
 // the store request without authentification
-Route::post('/creations', [CreationController::class, 'store']);
+// Route::post('/creations', [CreationController::class, 'store']);
 
 
 
 Route::get('/funds', [FundController::class, 'index']);
+
+//Route::get('/protected-route', 'ApiController@protectedMethod')->middleware('auth');
+Route::middleware(['auth:api'])->group(function () {
+    //Route::get('/protected-route-1', 'ApiController@protectedMethod1');
+    //Route::post('/protected-route-2', 'ApiController@protectedMethod2');
+    // Add more protected routes here
+    Route::post('/creations', [CreationController::class, 'store']);
+});

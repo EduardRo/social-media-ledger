@@ -46,3 +46,7 @@ Route::middleware(['auth:api'])->group(function () {
     // Add more protected routes here
     Route::post('/creations', [CreationController::class, 'store']);
 });
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});

@@ -45,9 +45,11 @@ class CreationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Creation $creation)
+    public function show($id)
     {
         //
+        $creation = Creation::find($id);
+        return response()->json($creation);
     }
 
     /**
@@ -70,8 +72,10 @@ class CreationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Creation $creation)
+    public function destroy($id)
     {
-        //
+        //return 'sunt in delete';
+        $creation = Creation::find($id);
+        $creation->delete();
     }
 }

@@ -24,7 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 
 Route::get('/creations', [CreationController::class, 'index']);
+Route::get('creations/verification/', [CreationController::class, 'verifi']);
 Route::get('/creations/{id}', [CreationController::class, 'show']);
+
 /*
 Old example that didn't used Controller
 Route::get('/funds', function (Request $request) {

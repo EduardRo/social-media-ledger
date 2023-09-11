@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 
 Route::get('/creations', [CreationController::class, 'index']);
-Route::get('creations/verification/', [CreationController::class, 'verifi']);
+Route::get('creations/verification/{name}', [CreationController::class, 'verifi']);
 Route::get('/creations/{id}', [CreationController::class, 'show']);
 
 /*
@@ -41,6 +41,8 @@ Route::get('/funds', function (Request $request) {
 
 
 Route::get('/funds', [FundController::class, 'index']);
+
+Route::post('/register', [AuthController::class, 'register']);
 
 
 //Route::get('/protected-route', 'ApiController@protectedMethod')->middleware('auth');

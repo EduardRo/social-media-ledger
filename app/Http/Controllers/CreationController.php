@@ -78,9 +78,9 @@ class CreationController extends Controller
         $creation = Creation::find($id);
         $creation->delete();
     }
-    public function verifi()
+    public function verifi($name)
     {
         //$verif = $request->input('name');
-        return response()->json('name: the verification name');
+        return response()->json('name: the verification name' . $name);
     }
 }

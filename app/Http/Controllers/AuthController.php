@@ -9,6 +9,11 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
     //
     public function register(Request $request)
     {

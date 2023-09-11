@@ -44,7 +44,7 @@ Route::get('/funds', function (Request $request) {
 Route::get('/funds', [FundController::class, 'index']);
 
 Route::post('/register', [AuthController::class, 'register']);
-
+Route::get('/users', [AuthController::class, 'index']);
 
 //Route::get('/protected-route', 'ApiController@protectedMethod')->middleware('auth');
 Route::middleware(['auth:api'])->group(function () {

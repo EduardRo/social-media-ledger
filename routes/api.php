@@ -6,6 +6,7 @@ use App\Models\Creation;
 use App\Models\Fund;
 use App\Http\Controllers\FundController;
 use App\Http\Controllers\CreationController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------

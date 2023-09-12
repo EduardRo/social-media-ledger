@@ -24,9 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
-Route::get('/creations', [CreationController::class, 'index']);
-Route::get('creations/verification/{name}', [CreationController::class, 'verifi']);
-Route::get('/creations/{id}', [CreationController::class, 'show']);
+
 
 /*
 Old example that didn't used Controller
@@ -47,10 +45,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/users', [AuthController::class, 'index']);
 
 //Route::get('/protected-route', 'ApiController@protectedMethod')->middleware('auth');
-Route::middleware(['auth:api'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     //Route::get('/protected-route-1', 'ApiController@protectedMethod1');
     //Route::post('/protected-route-2', 'ApiController@protectedMethod2');
     // Add more protected routes here
+    Route::get('/creations', [CreationController::class, 'index']);
+    Route::get('creations/verification/{name}', [CreationController::class, 'verifi']);
+    Route::get('/creations/{id}', [CreationController::class, 'show']);
     Route::post('/creations', [CreationController::class, 'store']);
     Route::put('/creations/{id}', [CreationController::class, 'update']);
 });

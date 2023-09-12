@@ -41,8 +41,10 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-            'driver' => 'token', // or 'passport' if using Laravel Passport
+            //'driver' => 'token', // or 'passport' if using Laravel Passport
+            'driver' => 'sanctum',
             'provider' => 'users',
+            'hash' => false,
         ],
     ],
 

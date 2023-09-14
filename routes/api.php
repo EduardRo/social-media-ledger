@@ -23,7 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 */
-
+// register, login, logout
+Route::post('/register', [AuthController::class, 'register']);
+//Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/users', [AuthController::class, 'index']);
 
 
 /*
@@ -41,8 +44,6 @@ Route::get('/funds', function (Request $request) {
 
 Route::get('/funds', [FundController::class, 'index']);
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/users', [AuthController::class, 'index']);
 
 //Route::get('/protected-route', 'ApiController@protectedMethod')->middleware('auth');
 Route::middleware(['auth:sanctum'])->group(function () {
@@ -54,8 +55,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/creations/{id}', [CreationController::class, 'show']);
     Route::post('/creations', [CreationController::class, 'store']);
     Route::put('/creations/{id}', [CreationController::class, 'update']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 Route::delete('/creations/{id}', [CreationController::class, 'destroy']);
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
